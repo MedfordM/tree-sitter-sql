@@ -60,5 +60,11 @@
     "bindings/node/*",
     "queries/*",
     "src/**"
+  ],
+  "tree-sitter": [
+    {
+      "scope": "source.sql",
+      "injection-regex": "^sql$"
+    }
   ]
 }

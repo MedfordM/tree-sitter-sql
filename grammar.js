@@ -3546,13 +3546,14 @@ module.exports = grammar({
 
     bang: _ => '!',
 
-    templated_string: _ => /`\w*\.?\w*\${.*}\w*`/,
+    _templated_string: _ => seq(`$`, `{`, `abc`, `}`),
+
     identifier: $ => choice(
-      $._identifier,
-      $._double_quote_string,
-      $.templated_string,
-      /`([a-zA-Z_][0-9a-zA-Z_]*)`/,
+        $._identifier,
+        $._double_quote_string,
+        /`([a-zA-Z_][0-9a-zA-Z_]*)`/,
     ),
+
     _identifier: _ => /[a-zA-Z_][0-9a-zA-Z_]*/,
   }
 
